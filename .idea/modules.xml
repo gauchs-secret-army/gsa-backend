@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SoftwareEngineerProject.iml" filepath="$PROJECT_DIR$/.idea/SoftwareEngineerProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/softwareEngineerProject/softwareEngineerProject.iml" filepath="$PROJECT_DIR$/softwareEngineerProject/softwareEngineerProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/softwareEngineerProject/demo.iml" filepath="$PROJECT_DIR$/softwareEngineerProject/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gsa-backend-fix.iml" filepath="$PROJECT_DIR$/.idea/gsa-backend-fix.iml" />
     </modules>
   </component>
 </project>
