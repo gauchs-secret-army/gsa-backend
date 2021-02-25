@@ -7,6 +7,7 @@ import java.util.Date;
 @Table(name = "Employee")
 public class Employee {
     @Id
+    private Integer RecordID;
     private Integer EmployeeID;
     private String Password;
     private String LastName;
@@ -17,14 +18,22 @@ public class Employee {
     private Date CreatedOn;
     public Employee() {
     }
-    public Employee(String lastName, String firstname, String password, Boolean active, String role, Integer managerID, Date createdOn) {
-        this.LastName = lastName;
+    public Employee(Integer recordID, Integer employeeID, String lastName, String firstname, String password, Boolean active, String role, Integer managerID, Date createdOn) {
+        this.RecordID = recordID;
+        this.EmployeeID = employeeID;
         this.FirstName = firstname;
+        this.LastName = lastName;
         this.Password = password;
         this.Active = active;
         this.Role = role;
         this.ManagerID = managerID;
         this.CreatedOn = createdOn;
+    }
+    public Integer getRecordID() {
+        return RecordID;
+    }
+    public void setRecordID(Integer recordID) {
+        this.RecordID = recordID;
     }
     public Integer getEmployeeID() {
         return EmployeeID;
