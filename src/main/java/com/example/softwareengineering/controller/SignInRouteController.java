@@ -20,7 +20,7 @@ public class SignInRouteController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Boolean> VerifyCreds(@RequestParam EmployeeSignIn empSignIn){
+    public ResponseEntity<Boolean> VerifyCreds(@RequestBody EmployeeSignIn empSignIn){
         if(repo.findById(empSignIn.getEmployeeID()).get().getPassword().equals(empSignIn.getPassword())){
             String role = repo.findById(empSignIn.getEmployeeID()).get().getRole();
             if(role.equals("Shift Manager") || role.equals("General Manager")) {
