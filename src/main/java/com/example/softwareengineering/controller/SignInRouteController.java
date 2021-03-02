@@ -20,7 +20,7 @@ public class SignInRouteController {
 
     @RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseBody
-    public ResponseEntity<Boolean> VerifyCreds(@RequestParam EmployeeSignIn empSignIn, @RequestParam HttpServletRequest reqId){
+    public ResponseEntity<Boolean> VerifyCreds(@RequestParam EmployeeSignIn empSignIn){
         if(repo.findById(empSignIn.getEmployeeID()).get().getPassword().equals(empSignIn.getPassword())){
             if(repo.findById(empSignIn.getEmployeeID()).get().getRole().equals("Manager")) {
                 return new ResponseEntity(true, HttpStatus.OK);
