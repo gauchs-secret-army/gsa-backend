@@ -1,5 +1,7 @@
 package com.example.softwareengineering.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,8 +9,8 @@ import java.util.Date;
 @Table(name = "Employee")
 public class Employee {
     @Id
+    private int EmployeeID;
     private Integer RecordID;
-    private Integer EmployeeID;
     private String Password;
     private String LastName;
     private String FirstName;
