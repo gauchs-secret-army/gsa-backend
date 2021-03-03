@@ -27,9 +27,9 @@ public class SignInRouteController {
                 return new ResponseEntity(true, HttpStatus.OK);
             }
         } else {
-            return new ResponseEntity("{'isManager': false}", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
         }
-        return new ResponseEntity("{'isManager': false}", HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
     }
 }
 
