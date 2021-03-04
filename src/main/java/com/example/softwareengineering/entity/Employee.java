@@ -11,7 +11,7 @@ public class Employee {
     @Id
     private int EmployeeID;
     private Integer RecordID;
-    private String Password;
+    private String password;
     private String LastName;
     private String FirstName;
     private Boolean Active;
@@ -25,7 +25,7 @@ public class Employee {
         this.EmployeeID = employeeID;
         this.FirstName = firstname;
         this.LastName = lastName;
-        this.Password = password;
+        this.password = password;
         this.Active = active;
         this.Role = role;
         this.ManagerID = managerID;
@@ -56,10 +56,10 @@ public class Employee {
         this.FirstName = firstName;
     }
     public String getPassword() {
-        return Password;
+        return password;
     }
     public void setPassword(String password) {
-        this.Password = password;
+        this.password = password;
     }
     public Boolean getActive() {
         return Active;
