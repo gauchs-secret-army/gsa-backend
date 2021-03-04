@@ -18,7 +18,7 @@ public class Employee {
     private Integer ManagerID;
     public Employee() {
     }
-    public Employee(Integer employeeID, String lastName, String firstname, String password, Boolean active, String role, Integer managerID, Date createdOn) {
+    public Employee(Integer employeeID, String lastName, String firstname, String password, Boolean active, String role, Integer managerID) {
         this.EmployeeID = employeeID;
         this.FirstName = firstname;
         this.LastName = lastName;
