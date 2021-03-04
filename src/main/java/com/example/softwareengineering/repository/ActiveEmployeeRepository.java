@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public interface ActiveEmployeeRepository extends JpaRepository<ActiveEmployee, Integer> {
+    boolean getActiveEmployeeBySessionKey(String sessionKey);
 }
