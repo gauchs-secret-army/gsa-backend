@@ -29,6 +29,18 @@ public class Employee {
         this.ManagerID = managerID;
         this.CreatedOn = createdOn;
     }
+
+    public Employee(Integer employeeID, String lastName, String firstname, String password, String role, Integer managerID) {
+        this.EmployeeID = employeeID;
+        this.FirstName = firstname;
+        this.LastName = lastName;
+        this.password = password;
+        this.Active = true;
+        this.Role = role;
+        this.ManagerID = managerID;
+        this.CreatedOn = new Date();
+    }
+
     public Integer getRecordID() {
         return RecordID;
     }
