@@ -19,10 +19,9 @@ public class RegistrationRouteController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity CreateEmployee(@RequestBody int employeeId, @RequestBody String password, @RequestBody String firstName, @RequestBody String lastName, @RequestBody String role, @RequestBody int managerId) {
+    public ResponseEntity CreateEmployee(@RequestBody Employee emp) {
         try {
-            Employee employee = new Employee(employeeId, password, firstName, lastName, role, managerId);
-            repo.save(employee);
+            repo.save(emp);
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
