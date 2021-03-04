@@ -25,7 +25,7 @@ public class Employee {
         this.EmployeeID = employeeID;
         this.FirstName = firstname;
         this.LastName = lastName;
-        this.password = password;
+        this.password = password
         this.Active = active;
         this.Role = role;
         this.ManagerID = managerID;
