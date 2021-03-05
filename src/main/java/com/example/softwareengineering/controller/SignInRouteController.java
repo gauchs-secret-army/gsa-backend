@@ -19,13 +19,13 @@ public class SignInRouteController {
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Boolean> VerifyCreds(@RequestBody Employee employee) {
-        if (repo.findById(employee.getEmployeeID()).isPresent())
+    public ResponseEntity<Boolean> VerifyCreds(@RequestBody int employeeId, @RequestBody String password) {
+        if (repo.findById(employeeId).isPresent())
         {
-            String password = repo.findById(employee.getEmployeeID()).get().getPassword();
-            if (password.equals(employee.getPassword()))
+            String passwordFromRepo = repo.findById(employeeId).get().getPassword();
+            if (passwordFromRepo.equals(password))
             {
-                String role = employee.getRole();
+                String role = repo.findById(employeeId).get().getRole();
                 if (role.equals("Shift Manager")) {
                     return new ResponseEntity(true, HttpStatus.OK);
                 } else if (role.equals("General Manager")) {
