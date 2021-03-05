@@ -26,17 +26,17 @@ public class SignInRouteController {
             if (password.equals(employee.getPassword()))
             {
                 String role = repo.findById(employee.getEmployeeID()).get().getRole();
-                if (role.equals("Shift Manager")) {
+                if (role.equals("Shift Manager") || role.equals("General Manager")) {
                     return new ResponseEntity(true, HttpStatus.OK);
-                } else if (role.equals("General Manager")) {
-                    return new ResponseEntity(true, HttpStatus.OK);
+                } else {
+                    return new ResponseEntity(false, HttpStatus.OK);
                 }
             }
+            return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
         }
         else {
             return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
         }
-        return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
     }
 }
 
