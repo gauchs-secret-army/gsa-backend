@@ -25,7 +25,7 @@ public class SignInRouteController {
             String password = repo.findById(employee.getEmployeeID()).get().getPassword();
             if (password.equals(employee.getPassword()))
             {
-                String role = employee.getRole();
+                String role = repo.findById(employee.getEmployeeID()).get().getRole();
                 if (role.equals("Shift Manager")) {
                     return new ResponseEntity(true, HttpStatus.OK);
                 } else if (role.equals("General Manager")) {
