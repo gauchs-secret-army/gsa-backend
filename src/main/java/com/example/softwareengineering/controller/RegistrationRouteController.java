@@ -17,6 +17,7 @@ public class RegistrationRouteController {
         this.repo = repo;
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity CreateEmployee(@RequestBody int employeeId, @RequestBody String password, @RequestBody String firstName, @RequestBody String lastName, @RequestBody String role, @RequestBody int managerId) {
