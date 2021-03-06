@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class Test {
     private final EmployeeRepository employeeRepository;
     Test(EmployeeRepository employeeRepository) {
