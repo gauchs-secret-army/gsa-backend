@@ -20,10 +20,10 @@ public class RegistrationRouteController {
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity CreateEmployee(@RequestBody Employee emp) {
+    public ResponseEntity<Integer> CreateEmployee(@RequestBody Employee emp) {
         try {
             repo.save(emp);
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity(emp.getEmployeeID(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
