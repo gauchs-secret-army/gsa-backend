@@ -1,11 +1,13 @@
 package com.example.softwareengineering.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 @Entity
 @Table(name = "Transactions")
 public class Transactions {
+    @Id
     private Integer TransactionID;
     private Integer RecordID;
     private BigDecimal Total;

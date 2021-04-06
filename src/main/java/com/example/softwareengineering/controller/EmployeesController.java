@@ -8,9 +8,9 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class Test {
+public class EmployeesController {
     private final EmployeeRepository employeeRepository;
-    Test(EmployeeRepository employeeRepository) {
+    EmployeesController(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
     @GetMapping("/employees")
