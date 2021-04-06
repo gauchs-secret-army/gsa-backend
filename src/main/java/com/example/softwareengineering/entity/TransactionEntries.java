@@ -2,11 +2,13 @@ package com.example.softwareengineering.entity;
 
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TransactionEntries")
 public class TransactionEntries {
+    @Id
     private Integer TransactionEntryID;
     private Integer ProductID;
     private Integer Quantity;
