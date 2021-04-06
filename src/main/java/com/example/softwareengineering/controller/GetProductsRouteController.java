@@ -1,7 +1,9 @@
 package com.example.softwareengineering.controller;
 
 import com.example.softwareengineering.entity.Employee;
+import com.example.softwareengineering.entity.Products;
 import com.example.softwareengineering.repository.EmployeeRepository;
+import com.example.softwareengineering.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,17 +17,17 @@ import java.util.List;
 @RestController
 
 public class GetProductsRouteController {
-    private final ProductRepository repo;
+    private final ProductsRepository repo;
 
     @Autowired
 
-    public GetProductsRouteController(ProductRepository repo) {
+    public GetProductsRouteController(ProductsRepository repo) {
         this.repo = repo;
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<List<Product>> GetAllProducts() {
+    public ResponseEntity<List<Products>> GetAllProducts() {
         try {
 //            List<Employee> AllProductList;
 //            AllProductList = repo.findAll();
@@ -33,7 +35,7 @@ public class GetProductsRouteController {
         }
         catch(Exception e)
         {
-            return new ResponseEntity(new List<Product>(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
 //        if (repo.findById(employee.getEmployeeID()).isPresent()) {
 //            String password = repo.findById(employee.getEmployeeID()).get().getPassword();
