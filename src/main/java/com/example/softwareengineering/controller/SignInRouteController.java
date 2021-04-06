@@ -18,26 +18,27 @@ public class SignInRouteController {
         this.repo = repo;
     }
 
+    //reach this endpoint at url/signin
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Boolean> VerifyCreds(@RequestBody Employee employee) {
+    public ResponseEntity<Boolean> VerifyCreds(@RequestBody Employee employee) { //takes a single object with applicable parameters
         if (repo.findById(employee.getEmployeeID()).isPresent())
-        {
-            String password = repo.findById(employee.getEmployeeID()).get().getPassword();
+        { //use employeeId to check that it exists
+            String password = repo.findById(employee.getEmployeeID()).get().getPassword(); //temp var to store database-stored password
             if (password.equals(employee.getPassword()))
-            {
-                String role = repo.findById(employee.getEmployeeID()).get().getRole();
+            { //if database-stored pass equals object-passed pass
+                String role = repo.findById(employee.getEmployeeID()).get().getRole(); //store employee role in temp var
                 if (role.equals("Shift Manager") || role.equals("General Manager")) {
-                    return new ResponseEntity(true, HttpStatus.OK);
+                    return new ResponseEntity(true, HttpStatus.OK); //if manager, return true in an OK HTTPStatus wrapper
                 } else {
-                    return new ResponseEntity(false, HttpStatus.OK);
+                    return new ResponseEntity(false, HttpStatus.OK); //if not, return false in an OK HTTPStatus wrapper
                 }
             }
             return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
         }
         else {
             return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
-        }
+        } //if incorrect password or nonexistent employee ID, return UNAUTHORIZED HTTPStatus
     }
 }
 
