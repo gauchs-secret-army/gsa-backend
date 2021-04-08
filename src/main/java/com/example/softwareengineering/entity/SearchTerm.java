@@ -2,11 +2,12 @@ package com.example.softwareengineering.entity;
 
 import javax.persistence.Entity;
 
-@Entity
 public class SearchTerm {
     private String Term;
     private Integer Items;
     private Integer Page;
+
+    public SearchTerm(){}
     public SearchTerm(String term, Integer items, Integer page){
         Term = term;
         Items = items;
