@@ -22,6 +22,8 @@ public class RegistrationRouteController {
     @ResponseBody
     public ResponseEntity<Integer> CreateEmployee(@RequestBody Employee emp) {
         try {
+            emp.setEmployeeID((int)(Math.random()*89999)+10000);
+            emp.setActive(true);
             repo.save(emp);
             return new ResponseEntity(emp.getEmployeeID(), HttpStatus.OK);
         } catch (Exception e) {
