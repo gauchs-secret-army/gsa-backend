@@ -47,7 +47,7 @@ public class GetProductsRouteController {
             }
             while(AllProductList.size() > searchTerm.getItems())
             {
-                AllProductList.remove(searchTerm.getItems());
+                AllProductList.remove(AllProductList.get(searchTerm.getItems()));
             }
             return new ResponseEntity(AllProductList, HttpStatus.OK);
         }
