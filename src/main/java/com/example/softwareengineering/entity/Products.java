@@ -28,6 +28,7 @@ public class Products {
         this.images = Images;
         this.stock = Stock;
     }
+    public Integer getProductID() { return productID; }
     public void setProductID(Integer productID) { this.productID = productID; }
     public String getName() { return ProductName; }
     public void setName(String name) { this.ProductName = name; }
