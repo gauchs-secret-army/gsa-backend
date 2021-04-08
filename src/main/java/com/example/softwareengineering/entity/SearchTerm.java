@@ -7,7 +7,7 @@ public class SearchTerm {
     private Integer Items;
     private Integer Page;
 
-    public SearchTerm(){};
+    public SearchTerm(){}
     public SearchTerm(String term, Integer items, Integer page){
         Term = term;
         Items = items;
