@@ -21,14 +21,13 @@ public class Products {
 
     public Products() {
     }
-    public Products(Integer productID, String productname, String Price, Blob Images, Integer Stock) {
-        this.productID = productID;
+    public Products(String productname, String Price, Blob Images, Integer Stock) {
+        this.productID = (int)(Math.random()*89999)+10000;
         this.ProductName = productname;
         this.price = Price;
         this.images = Images;
         this.stock = Stock;
     }
-    public Integer getProductID() { return productID; }
     public void setProductID(Integer productID) { this.productID = productID; }
     public String getName() { return ProductName; }
     public void setName(String name) { this.ProductName = name; }
