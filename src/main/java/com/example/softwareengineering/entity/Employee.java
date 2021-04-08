@@ -1,5 +1,6 @@
 package com.example.softwareengineering.entity;
 
+import com.example.softwareengineering.repository.EmployeeRepository;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -28,8 +29,8 @@ public class Employee {
         this.ManagerID = managerID;
     }
 
-    public Employee(Integer employeeID, String lastName, String firstname, String password, String role, Integer managerID) {
-        this.EmployeeID = employeeID;
+    public Employee(String lastName, String firstname, String password, String role, Integer managerID) {
+        this.EmployeeID = (int)(Math.random()*89999)+10000;
         this.FirstName = firstname;
         this.LastName = lastName;
         this.password = password;
