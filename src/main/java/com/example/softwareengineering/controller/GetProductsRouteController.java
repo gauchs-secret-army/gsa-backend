@@ -27,29 +27,31 @@ public class GetProductsRouteController {
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<List<Products>> GetAllProducts() {
+    public ResponseEntity<List<Products>> GetAllProducts(@RequestBody String searchTerm, @RequestBody int itemsPerPage, @RequestBody int pageNumber) {
         try {
-//            List<Employee> AllProductList;
-//            AllProductList = repo.findAll();
-            return new ResponseEntity(repo.findAll(), HttpStatus.OK);
+            List<Products> AllProductList;
+            AllProductList = repo.findAll();
+            for(int i = 0; i < AllProductList.size(); i++)
+            {
+                if(!AllProductList.get(i).getName().contains(searchTerm))
+                {
+                    AllProductList.remove(i);
+                    i--;
+                }
+            }
+            for(int i = 0; i < itemsPerPage * (pageNumber - 1); i++)
+            {
+                AllProductList.remove(0);
+            }
+            while(AllProductList.size() > itemsPerPage)
+            {
+                AllProductList.remove(itemsPerPage);
+            }
+            return new ResponseEntity(AllProductList, HttpStatus.OK);
         }
         catch(Exception e)
         {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-//        if (repo.findById(employee.getEmployeeID()).isPresent()) {
-//            String password = repo.findById(employee.getEmployeeID()).get().getPassword();
-//            if (password.equals(employee.getPassword())) {
-//                String role = repo.findById(employee.getEmployeeID()).get().getRole();
-//                if (role.equals("Shift Manager") || role.equals("General Manager")) {
-//                    return new ResponseEntity(true, HttpStatus.OK);
-//                } else {
-//                    return new ResponseEntity(false, HttpStatus.OK);
-//                }
-//            }
-//            return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
-//        } else {
-//            return new ResponseEntity(false, HttpStatus.UNAUTHORIZED);
-//        }
     }
 }
