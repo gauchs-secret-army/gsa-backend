@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -34,7 +35,7 @@ public class GetProductsRouteController {
             AllProductList = repo.findAll();
             for(int i = 0; i < AllProductList.size(); i++)
             {
-                if(!AllProductList.get(i).getName().contains(searchTerm.getTerm()))
+                if(!AllProductList.get(i).getName().toLowerCase().contains(searchTerm.getTerm().toLowerCase()))
                 {
                     AllProductList.remove(i);
                     i--;
