@@ -2,6 +2,7 @@ package com.example.softwareengineering.controller;
 
 import com.example.softwareengineering.entity.Employee;
 import com.example.softwareengineering.entity.Products;
+import com.example.softwareengineering.entity.SearchTerm;
 import com.example.softwareengineering.repository.EmployeeRepository;
 import com.example.softwareengineering.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,25 +28,25 @@ public class GetProductsRouteController {
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<List<Products>> GetAllProducts(@RequestBody String searchTerm, @RequestBody int itemsPerPage, @RequestBody int pageNumber) {
+    public ResponseEntity<List<Products>> GetAllProducts(@RequestBody SearchTerm searchTerm) {
         try {
             List<Products> AllProductList;
             AllProductList = repo.findAll();
             for(int i = 0; i < AllProductList.size(); i++)
             {
-                if(!AllProductList.get(i).getName().contains(searchTerm))
+                if(!AllProductList.get(i).getName().contains(searchTerm.getTerm()))
                 {
                     AllProductList.remove(i);
                     i--;
                 }
             }
-            for(int i = 0; i < itemsPerPage * (pageNumber - 1); i++)
+            for(int i = 0; i < searchTerm.getItems() * (searchTerm.getPage() - 1); i++)
             {
                 AllProductList.remove(0);
             }
-            while(AllProductList.size() > itemsPerPage)
+            while(AllProductList.size() > searchTerm.getItems())
             {
-                AllProductList.remove(itemsPerPage);
+                AllProductList.remove(searchTerm.getItems());
             }
             return new ResponseEntity(AllProductList, HttpStatus.OK);
         }
