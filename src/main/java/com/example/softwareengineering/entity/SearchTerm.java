@@ -1,5 +1,8 @@
 package com.example.softwareengineering.entity;
 
+import javax.persistence.Entity;
+
+@Entity
 public class SearchTerm {
     private String Term;
     private Integer Items;
