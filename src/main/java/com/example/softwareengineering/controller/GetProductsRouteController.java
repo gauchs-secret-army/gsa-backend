@@ -33,9 +33,11 @@ public class GetProductsRouteController {
         try {
             List<Products> AllProductList;
             AllProductList = repo.findAll();
+            String search = searchTerm.getTerm().toLowerCase();
             for(int i = 0; i < AllProductList.size(); i++)
             {
-                if(!AllProductList.get(i).getName().toLowerCase().contains(searchTerm.getTerm().toLowerCase()))
+                Products item = AllProductList.get(i);
+                if(!(item.getName().toLowerCase().contains(search)|| item.getProductID().toString().contains(search)))
                 {
                     AllProductList.remove(i);
                     i--;
