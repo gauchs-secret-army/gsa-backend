@@ -13,20 +13,19 @@ public class Products {
     private Integer productID;
     private String ProductName;
     private String price;
-    @Lob
-    private Blob images;
+    private String images;
     private Integer stock;
 
     public Products() {
     }
-    public Products(String productname, String Price, Blob Images, Integer Stock) {
+    public Products(String productname, String Price, String Images, Integer Stock) {
         this.productID = (int)(Math.random()*89999)+10000;
         this.ProductName = productname;
         this.price = Price;
         this.images = Images;
         this.stock = Stock;
     }
-    public Products(Integer productID, String productname, String Price, Blob Images, Integer Stock) {
+    public Products(Integer productID, String productname, String Price, String Images, Integer Stock) {
         this.productID = productID;
         this.ProductName = productname;
         this.price = Price;
@@ -39,8 +38,8 @@ public class Products {
     public void setName(String name) { this.ProductName = name; }
     public String getPrice() { return price; }
     public void setPrice(String price) { this.price = price; }
-    public Blob getImage() { return images; }
-    public void setImage(Blob image) { this.images = image; }
+    public String getImage() { return images; }
+    public void setImage(String image) { this.images = image; }
     public Integer getStock() { return stock; }
     public void setStock(Integer stock) { this.stock = stock; }
 }
