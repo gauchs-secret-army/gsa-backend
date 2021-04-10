@@ -25,6 +25,7 @@ public class CreateProductRouteController {
     @ResponseBody
     public ResponseEntity CreateProduct(@RequestBody Products prod) {
         try {
+            prod.setProductID((int)(Math.random()*89999)+10000);
             repo.save(prod);
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
