@@ -37,7 +37,7 @@ public class GetProductsRouteController {
             for(int i = 0; i < AllProductList.size(); i++)
             {
                 Products item = AllProductList.get(i);
-                if(!(item.getName().toLowerCase().contains(search)|| item.getProductID().toString().contains(search)))
+                if(!(item.getName().toLowerCase().contains(search)|| item.getProductID().toString().contains(search)) && !search.equals(""))
                 {
                     AllProductList.remove(i);
                     i--;
