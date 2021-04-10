@@ -11,18 +11,23 @@ import java.sql.Blob;
 public class Products {
     @Id
     private Integer productID;
-
     private String ProductName;
     private String price;
     @Lob
     private Blob images;
-
     private Integer stock;
 
     public Products() {
     }
     public Products(String productname, String Price, Blob Images, Integer Stock) {
         this.productID = (int)(Math.random()*89999)+10000;
+        this.ProductName = productname;
+        this.price = Price;
+        this.images = Images;
+        this.stock = Stock;
+    }
+    public Products(Integer productID, String productname, String Price, Blob Images, Integer Stock) {
+        this.productID = productID;
         this.ProductName = productname;
         this.price = Price;
         this.images = Images;
